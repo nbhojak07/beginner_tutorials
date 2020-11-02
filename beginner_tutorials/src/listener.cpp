@@ -33,11 +33,6 @@
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
-// %Tag(CALLBACK)%
-void chatterCallback(const std_msgs::String::ConstPtr& msg) {
-  ROS_INFO("I heard: [%s]", msg->data.c_str());
-}
-// %EndTag(CALLBACK)%
 
 int main(int argc, char **argv) {
   /**
@@ -53,7 +48,7 @@ int main(int argc, char **argv) {
   ros::init(argc, argv, "listener");
 
   if (argc != 3){
-    ROS_INFO("Usage: add_two_ints_client X Y");
+    ROS_INFO_STREAM("Usage: add_two_ints_client X Y");
     return 1;
   }
 
@@ -71,10 +66,11 @@ beginner_tutorials::AddTwoInts srv;
 srv.request.a = atoll(argv[1]);
 srv.request.b = atoll(argv[2]);
 if ( client.call(srv)){
-  ROS_INFO("Summation: %1d", (long int)srv.response.sum);
+  ROS_INFO_STREAM("Sum: " << (long int)srv.response.sum);
 }
 else{
-  ROS_ERROR("failed call service add_two_ints");
+  ROS_ERROR_STREAM("Failed to call service add_two_ints");
+  ROS_FATAL_STREAM("Failed to call service add_two_ints!!");
   return -1;
 }
 return 0;

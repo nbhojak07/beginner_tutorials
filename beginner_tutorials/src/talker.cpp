@@ -38,8 +38,8 @@
 bool add(beginner_tutorials::AddTwoInts::Request &req,
          beginner_tutorials::AddTwoInts::Response &res){
         res.sum = req.a + req.b;
-        ROS_INFO("Requst: x = %1d, y= %1d", (long int)req.a, (long int)req.b);
-        ROS_INFO("Sending response: [%1d]", (long int)res.sum);
+        ROS_INFO_STREAM("Request: x = " << (long int)req.a << "y: " << (long int)req.b);
+        ROS_INFO_STREAM("Sending Response: " << (long int)res.sum);
         return true;
          }
 
@@ -94,8 +94,10 @@ int main(int argc, char **argv) {
   ros::Rate loop_rate(10);
 // %EndTag(LOOP_RATE)%
 
+ROS_DEBUG_STREAM("Talker started...");
 // Call service
 ros::ServiceServer service = n.advertiseService("add_two_ints", add);
+ROS_WARN_STREAM("ROS Service might take time to start...");
 ROS_INFO("Adding two ints");
 ros::spin();
 
