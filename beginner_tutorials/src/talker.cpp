@@ -28,9 +28,10 @@
  * @return True on addition success
  *  **/
 bool add(beginner_tutorials::AddTwoInts::Request &req,
-         beginner_tutorials::AddTwoInts::Response &res){
+         beginner_tutorials::AddTwoInts::Response &res) {
         res.sum = req.a + req.b;
-        ROS_INFO_STREAM("Request: x = " << (long int)req.a << "y: " << (long int)req.b);
+        ROS_INFO_STREAM("Request: x = " << (long int)req.a << "y: "
+        << (long int)req.b);
         ROS_INFO_STREAM("Sending Response: " << (long int)res.sum);
         return true;
          }
@@ -66,7 +67,7 @@ int main(int argc, char **argv) {
    * NodeHandle destructed will close down the node.
    */
 // %Tag(NODEHANDLE)%
-// Create ROS node handle object 
+// Create ROS node handle object
   ros::NodeHandle n;
 // %EndTag(NODEHANDLE)%
 
@@ -91,13 +92,13 @@ int main(int argc, char **argv) {
 // %EndTag(PUBLISHER)%
 
 // %Tag(LOOP_RATE)%
-// Loop rate set to 10Hz 
+// Loop rate set to 10Hz
   ros::Rate loop_rate(10);
 // %EndTag(LOOP_RATE)%
 
 ROS_DEBUG_STREAM("Talker started...");
 // Call service
-// Advertise ROS Service 
+// Advertise ROS Service
 ros::ServiceServer service = n.advertiseService("add_two_ints", add);
 ROS_WARN_STREAM("ROS Service might take time to start...");
 ROS_INFO_STREAM("Adding two ints");

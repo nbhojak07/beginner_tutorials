@@ -1,2 +1,10 @@
 Done processing ./src/listener.cpp
 Done processing ./src/talker.cpp
+Total errors found: 6
+./src/listener.cpp:64:  Use int16/int64/etc, rather than the C type long  [runtime/int] [4]
+./src/talker.cpp:30:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::AddTwoInts::Request &req  [runtime/references] [2]
+./src/talker.cpp:31:  Is this a non-const reference? If so, make const or use a pointer: beginner_tutorials::AddTwoInts::Response &res  [runtime/references] [2]
+./src/talker.cpp:33:  Use int16/int64/etc, rather than the C type long  [runtime/int] [4]
+./src/talker.cpp:34:  Use int16/int64/etc, rather than the C type long  [runtime/int] [4]
+./src/talker.cpp:35:  Use int16/int64/etc, rather than the C type long  [runtime/int] [4]
+

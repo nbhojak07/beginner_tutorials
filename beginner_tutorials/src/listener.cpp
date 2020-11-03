@@ -11,7 +11,6 @@
  * 
  * Source file for ROS client to add two integers 
  * */
- 
 // %Tag(FULLTEXT)%
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -37,10 +36,10 @@ int main(int argc, char **argv) {
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  // Initialise ROS Node 
+  // Initialise ROS Node
   ros::init(argc, argv, "listener");
-  // Check argument length vector 
-  if (argc != 3){
+  // Check argument length vector
+  if (argc != 3) {
     ROS_INFO_STREAM("Usage: add_two_ints_client X Y");
     return 1;
   }
@@ -50,20 +49,20 @@ int main(int argc, char **argv) {
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
-  // Create ROS Node handle object 
+  // Create ROS Node handle object
   ros::NodeHandle n;
 
 // ROS Service Client
 
-ros::ServiceClient client = n.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
+ros::ServiceClient client = n.serviceClient<
+              beginner_tutorials::AddTwoInts>("add_two_ints");
 beginner_tutorials::AddTwoInts srv;
 srv.request.a = atoll(argv[1]);
 srv.request.b = atoll(argv[2]);
 // If call to service successful then display sum
-if ( client.call(srv)){
+if ( client.call(srv) ) {
   ROS_INFO_STREAM("Sum: " << (long int)srv.response.sum);
-}
-else{
+} else {
   ROS_ERROR_STREAM("Failed to call service add_two_ints");
   ROS_FATAL_STREAM("Failed to call service add_two_ints!!");
   return -1;
