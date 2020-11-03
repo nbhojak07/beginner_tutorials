@@ -50,4 +50,25 @@ cd catkin_ws
 source devel/setup.bash
 rosrun beginner_tutorials listener 
 ```
+## Using ROS Service
+#### New Terminal 
+```
+rosservice call /add_two_ints 1 3
+```
+
+## Using ROS Launch
+#### New Terminal 
+```
+roslaunch beginner_tutorials AddTwoInts.launch a:=1 b:=3
+```
+## Using RQT_CONSOLE and RQT_LOGGER_LEVEL
+#### Terminal 1
+```
+rosrun rqt_console rqt_console
+```
+#### Terminal 2
+```
+rosrun rqt_logger_level rqt_logger_level
+```
+Run the server and client service after running rqt_console
 
