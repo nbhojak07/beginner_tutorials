@@ -57,7 +57,7 @@ rosrun beginner_tutorials listener
 rosservice call /add_two_ints 1 3
 ```
 
-## Using Launch
+## Using ROS Launch
 #### New Terminal 
 ```
 roslaunch beginner_tutorials AddTwoInts.launch a:=1 b:=3
