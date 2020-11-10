@@ -72,3 +72,43 @@ rosrun rqt_logger_level rqt_logger_level
 ```
 Run the server and client service after running rqt_console
 
+## Inspecting TF Frames
+```
+cd catkin_ws
+source devel/setup.bash
+rosrun rqt_tf_tree rqt_tf_tree
+```
+## Running Tests
+```
+cd catkin_ws
+source devel/setup.bash
+roslaunch talker_test.launch a:=5 b:=4
+```
+## Recording bag files
+```
+cd catkin_ws
+source devel/setup.bash
+roslaunch beginner_tutorials AddTwoInts.launch record:=true
+```
+## Inspecting rosbag files
+```
+cd catkin_ws/src/beginner_tutorials/results
+rosbag info beginner_tutorials.bag
+```
+## Playback rosbag
+#### Terminal 1:
+```
+roscore
+```
+#### Terminal 2:
+```
+cd catkin_ws/src/beginner_tutorials/results
+rosbag play beginner_tutorials.bag
+```
+#### Terminal 3:
+```
+cd catkin_ws
+source devel/setup.bash
+rosrun beginner_tutorials listener
+```
+To stop the program, press Ctrl+C.
