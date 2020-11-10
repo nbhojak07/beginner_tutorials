@@ -101,19 +101,22 @@ ros::ServiceServer service = n.advertiseService("add_two_ints", add);
 ROS_WARN_STREAM("ROS Service might take time to start...");
 ROS_INFO_STREAM("Adding two ints");
 
-while(1) {
-  // TF Broadcaster
-static tf::TransformBroadcaster br;
+ros::spin();
+
+while (ros::ok()) {
+  // Transform braodcaster 
+  static tf::TransformBroadcaster br;
   tf::Transform transform;
   transform.setOrigin(tf::Vector3(10.0, 20.0, 30.0));
   tf::Quaternion q;
-  q.setRPY(1, 0, 1);
+  q.setRPY(1.0, 0, 1.0);
   transform.setRotation(q);
-  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "talk"));
+  br.sendTransform(tf::StampedTransform(transform, 
+                                        ros::Time::now(),
+                                        "world",
+                                        "talk"));
   loop_rate.sleep();
 }
-ros::spin();
-
 return 0;
 }
 // %EndTag(FULLTEXT)%
