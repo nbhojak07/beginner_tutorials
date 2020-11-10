@@ -3,6 +3,7 @@ project(beginner_tutorials)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  tf
   rospy
   std_msgs
   message_generation
