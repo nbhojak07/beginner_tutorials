@@ -33,7 +33,6 @@
  *  Source file containing unit tests for talker 
  *
  */
- 
 #include <gtest/gtest.h>
 #include <ros/ros.h>
 #include <ros/service_client.h>
@@ -42,15 +41,15 @@
 
 /**
  * @brief Tests the AddTwoInts service output
- * @param TestSuite Test name 
+ * @param TestSuite Test name
  * @param TestServiceOutput Unit test name
  */
-TEST (TestSuite, TestServiceOutput) {
+TEST(TestSuite, TestServiceOutput) {
   // Create a ROS node handle
   ros::NodeHandle node;
   // Create a ROS service client
-  ros::ServiceClient client = node.serviceClient<beginner_tutorials::AddTwoInts>("add_two_ints");
-
+  ros::ServiceClient client = node.serviceClient<beginner_tutorials
+                              ::AddTwoInts>("add_two_ints");
   beginner_tutorials::AddTwoInts srv;
   srv.request.a = 5;
   srv.request.b = 4;
