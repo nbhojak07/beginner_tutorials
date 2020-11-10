@@ -10,5 +10,8 @@
 
     <!-- Starts listener node-->
     <node pkg = "beginner_tutorials" type = "listener" name = "add_two_ints_client" output = "screen" args = "$(arg a) $(arg b)"/>
+ 
+    <!--Starts rosbag-->
+    <node pkg = "rosbag" name = "record" type = "record" args = "-a -O $(find beginner_tutorials)/results/beginner_tutorials.bag" if = "$(arg record)"/>
 
 </launch> 
